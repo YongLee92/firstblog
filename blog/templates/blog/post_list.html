@@ -1,20 +1,22 @@
 <html>
-  <head>
-    <title> django blog</title>
-    </head>
-    <body>
-      <div>
-      <p>published: 23.02.2019, 12:09</p>
-      </div>
-      <div>
-          <h2><a href="">My first post</a></h2>
-          <p> 모라고 친건지 모르겠네</p>
-      </div>
 
-      <div>
-        <p>published:23.02.2019, 12:10</p>
-        <h2><a href="">My second post</a></h2>
-        <p> 이것도 모라고 친건지 모르겠네</p>
-      </div>
-    </body>
+<head>
+    <title> django blog</title>
+</head>
+
+<body>
+    <div>
+        <h1><a href="/">Django Girls Blog</a></h1>
+    </div>
+    {% for post in posts %}
+<div>
+    <p>published: {{posts.published_date}}</p>
+    <h1><a href="">{{post.title}}</a></h1>
+    <p>{{post.text|linebreaksbr}}</p>
+    <!--post 모델에서 접근하기위해 post.title 혹은 post.text사용
+        linebreaksbr 글 텍스트 행이 바뀌면 문단으로 변환하도록 하라는 의미-->
+</div>
+{%endfor%}
+</body>
 </html>
+<!-- for 와 endfor 사이에 있는 것들을 반복-->
